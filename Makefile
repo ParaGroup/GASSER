@@ -18,43 +18,64 @@
 # Author: Tiziano De Matteis <dematteis at di.unipi.it>
 
 
-FF_ROOT		= $(HOME)/fastflow
+DELAUNAY_DIR	= delaunay_linterp
+FF_ROOT			= fastflow
+DELAUNAY_REPO	= https://github.com/rncarpio/delaunay_linterp
+FF_REPO			= https://github.com/fastflow/fastflow
 
-CXX			= g++
-INCLUDES	= -I $(FF_ROOT) -I $(PWD)/include
-CXXFLAGS  	= -std=c++11 -O3
+CXX				= g++
+INCLUDES		= -I $(FF_ROOT) -I $(PWD)/include
+CXXFLAGS		= -std=c++11 -O3
 
-NCXX		= nvcc
-NCXXFLAGS	= -x cu -w -std=c++11 -O3 --expt-extended-lambda -gencode arch=compute_35,code=sm_35
-NCLIBS      = -lCGAL -lgmp -lgsl -lgslcblas
+NCXX			= nvcc
+NCXXFLAGS		= -x cu -w -std=c++11 -O3 --expt-extended-lambda -gencode arch=compute_35,code=sm_35
+NCLIBS			= -lCGAL -lgmp -lgsl -lgslcblas
+LDFLAGS			= -pthread
+MACROS			= -DPARTIAL
+TARGETS			= test_wf test_wf_gpu test_template financial
 
 
-LDFLAGS 	= -pthread
-MACROS		= -DPARTIAL
-TARGETS		= test_wf test_wf_gpu test_template financial
 
 .DEFAULT_GOAL := all
-.PHONY: all clean cleanall
+.PHONY: all clean cleanall delaunay fastflow
 .SUFFIXES: .cpp
 
 
-
+all: financial_cpu financial_gpu soccer_cpu soccer_gpu
 
 #Financial
 
-financial_cpu: src/financial_cpu.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(MACROS) $(OPTFLAGS) -o bin/$@ $^ $(LDFLAGS)
+financial_cpu: fastflow delaunay src/financial_cpu.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(MACROS) $(OPTFLAGS) -o bin/$@ src/financial_cpu.cpp $(LDFLAGS)
 
-financial_gpu: src/financial_gpu.cpp
-	$(NCXX) $(NCXXFLAGS) $(INCLUDES) $(MACROS) -o bin/$@ $^ $(NCLIBS)
+financial_gpu: fastflow delaunay  src/financial_gpu.cpp
+	$(NCXX) $(NCXXFLAGS) $(INCLUDES) $(MACROS) -o bin/$@  src/financial_gpu.cpp $(NCLIBS)
 
 #######SOCCER
 
-soccer_cpu: src/soccer_cpu.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDES) $(MACROS) $(OPTFLAGS) -o bin/$@ $^ $(LDFLAGS)
+soccer_cpu: fastflow delaunay  src/soccer_cpu.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) $(MACROS) $(OPTFLAGS) -o bin/$@ src/soccer_cpu.cpp $(LDFLAGS)
 
-soccer_gpu: src/soccer_gpu.cpp include/Win_GPU_Config.h
-	$(NCXX) $(NCXXFLAGS) $(INCLUDES) $(MACROS) -o bin/$@ $^ $(NCLIBS)
+soccer_gpu: fastflow delaunay  src/soccer_gpu.cpp include/Win_GPU_Config.h
+	$(NCXX) $(NCXXFLAGS) $(INCLUDES) $(MACROS) -o bin/$@ src/soccer_gpu.cpp $(NCLIBS)
+
+
+### Phony
+
+fastflow:
+	@if [ ! -d $(FF_ROOT) ] ;\
+	then \
+	  echo "FastFlow does not exist, fetching"; \
+	  git clone $(FF_REPO); \
+	fi
+
+delaunay:
+	@if [ ! -d $(DELAUNAY_DIR) ] ;\
+	then \
+	  echo "Delaunay_linterp does not exist, fetching"; \
+	  git clone $(DELAUNAY_REPO); \
+	fi
+
 
 
 clean:
@@ -62,3 +83,5 @@ clean:
 
 cleanall:
 	rm -f bin/*.o bin/*~
+
+

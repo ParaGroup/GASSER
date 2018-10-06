@@ -4,3 +4,4 @@ bin/*
 *.includes
 README_IT
 delaunay_linterp/
+fastflow/
