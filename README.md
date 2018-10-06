@@ -38,7 +38,7 @@ After this, to compile it is sufficient to run:
 
 ```
     $ make all
-    ```
+```
 
 The produced binaries will be placed under the `bin` directory:
 
