@@ -41,7 +41,7 @@ TARGETS			= test_wf test_wf_gpu test_template financial
 .SUFFIXES: .cpp
 
 
-all: financial_cpu financial_gpu soccer_cpu soccer_gpu
+all: bin financial_cpu financial_gpu soccer_cpu soccer_gpu
 
 #Financial
 
@@ -76,7 +76,8 @@ delaunay:
 	  git clone $(DELAUNAY_REPO); \
 	fi
 
-
+bin:
+	mkdir bin
 
 clean:
 	rm -f bin/*

@@ -43,13 +43,13 @@
 //#define SOFT_RECONFIGURATIONS		//use Soft reconfigurations
 
 
-#define BRUTE_FORCE	//if true Manager tries all the possible configuration in an exhaustive way. NOTE: one of the two previous must be defined. It may takes a lot of time
+//#define BRUTE_FORCE			//if defined, the Manager tries all the possible configuration in an exhaustive way. NOTE: one of the two previous must be defined. It may takes a lot of time
 #if defined(BRUTE_FORCE)
-	#define PARTIAL		//if used with the BRUTE_FORCE flag, allow to evaluate only the 20% of the overall configurations
+	#define PARTIAL			//if used with the BRUTE_FORCE flag, allow to evaluate only the 20% of the overall configurations
 #endif
 
 const double _monitoring_interval=1000000.0;	//expressed in usec, used by the collector for monitoring the rate and communicate it to manager
-const int _mov_average_length=3;   //the maximum number of the last monitor intervals that we monitor to check whether the throughput is stable
+const int _mov_average_length=3;	//the maximum number of the last monitor intervals that we monitor to check whether the throughput is stable
 const int _cv_average_length=3;		//the maximum number of consecutive coeff variatians to consider to determine if the throughput is stable
 
 
