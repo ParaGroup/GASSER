@@ -31,7 +31,7 @@ NCXX			= nvcc
 NCXXFLAGS		= -x cu -w -std=c++11 -O3 --expt-extended-lambda -gencode arch=compute_35,code=sm_35
 NCLIBS			= -lCGAL -lgmp -lgsl -lgslcblas
 LDFLAGS			= -pthread
-MACROS			= -DPARTIAL
+MACROS			=
 TARGETS			= test_wf test_wf_gpu test_template financial
 
 
