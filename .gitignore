@@ -1,0 +1,6 @@
+*.config
+bin/*
+*.files
+*.includes
+README_IT
+delaunay_linterp/
