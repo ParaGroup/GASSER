@@ -48,6 +48,16 @@ The produced binaries will be placed under the `bin` directory:
 
 **Please note**: the gpu versions are by default compiled with the raindrop heuristic. If you want to let the Manager tries exhaustively the different configuration, you can compile the programs with the `BRUTE_FORCE` preprocessor macrod defined. It can be enabled also by uncommenting 
 line 46 in the file `include/Win_GPU_Config.h`
+
+### Known problems
+When compiling you can receive an error regarding the `delaunay_linter` library:
+
+```
+delaunay_2_interp.h:39:23: fatal error: Eigen/Dense: No such file or directory
+```
+
+this could occur depending on your Linux distribution and installation path. A possible solution could be to edit the indicated file (under ` delaunay_linterp/src/delaunay_2_interp.h`) and change the line 39 with the proper installation path of the Eigen library
+
 ## Executing
 
 ### Financial use case
