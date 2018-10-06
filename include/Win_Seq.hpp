@@ -32,7 +32,7 @@
  *
  * Authors: Tiziano De Matteis <dematteis at di.unipi.it>
  *	    Gabriele Mencagli <mencagli at di.unipi.it>
- * /
+ */
 
 #ifndef WIN_SEQ_H
 #define WIN_SEQ_H
