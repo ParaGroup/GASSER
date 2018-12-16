@@ -1,4 +1,4 @@
-# GASPOW
+# GASSER
 An Autotunable System for Sliding-Window Non-Incremental Streaming Operators on GPU
 
 *(Please note that this is a prelimnary version of the repository)*
@@ -6,13 +6,13 @@ An Autotunable System for Sliding-Window Non-Incremental Streaming Operators on 
 
 
 
-### For building Gaspow
+### For building Gasser
 
 * gcc (>4.8)
 * cuda (>=8)
 * gsl (>=2)
 
-Additionally Gaspow depends from FastFlow (http://calvados.di.unipi.it/)  and Dalaunay_linterp (http://rncarpio.github.io/delaunay_linterp/). These are header only libraries and are automatically downloaded during the building process but have additional requirements.
+Additionally Gasser depends from FastFlow (http://calvados.di.unipi.it/)  and Dalaunay_linterp (http://rncarpio.github.io/delaunay_linterp/). These are header only libraries and are automatically downloaded during the building process but have additional requirements.
 
 ### Required by Delaunay_linterp
 Minimum requirements (see http://rncarpio.github.io/delaunay_linterp/ for the full requirements) are:
@@ -42,8 +42,8 @@ After this, to compile it is sufficient to run:
 
 The produced binaries will be placed under the `bin` directory:
 
-* `financial_cpu` and `financial_gpu` represent respectively the *cpu* (implemented using FastFlow and Posix thread) and *gpu* (implemented with Gaspow) version of the financial use case (query 1 in the paper);
-* `soccer_cpu` and `soccer_gpu` represent the *cpu* (FastFlow and Posix) and the *gpu* version (Gaspow) of the soccer use case (query 2 in the paper).
+* `financial_cpu` and `financial_gpu` represent respectively the *cpu* (implemented using FastFlow and Posix thread) and *gpu* (implemented with Gasser) version of the financial use case (query 1 in the paper);
+* `soccer_cpu` and `soccer_gpu` represent the *cpu* (FastFlow and Posix) and the *gpu* version (Gasser) of the soccer use case (query 2 in the paper).
 
 
 **Please note**: the gpu versions are by default compiled with the raindrop heuristic. If you want to let the Manager tries exhaustively the different configuration, you can compile the programs with the `BRUTE_FORCE` preprocessor macrod defined. It can be enabled also by uncommenting 
