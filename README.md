@@ -57,3 +57,6 @@ delaunay_2_interp.h:39:23: fatal error: Eigen/Dense: No such file or directory
 ```
 
 this could occur depending on your Linux distribution and installation path. A possible solution could be to edit the indicated file (under ` delaunay_linterp/src/delaunay_2_interp.h`) and change the line 39 with the proper installation path of the Eigen library.
+
+# Contributors
+P<sup>3</sup>ARSEC has been developed by [Tiziano De Matteis](mailto:dematteis@di.unipi.it) and [Gabriele Mencagli](mailto:mencagli@di.unipi.it)
