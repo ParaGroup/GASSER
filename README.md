@@ -60,3 +60,7 @@ this could occur depending on your Linux distribution and installation path. A p
 
 # Contributors
 GASSER has been developed by [Tiziano De Matteis](mailto:dematteis@di.unipi.it) and [Gabriele Mencagli](mailto:mencagli@di.unipi.it).
+
+
+If our work is useful for your research, please cite the following paper:
+ - T. De Matteis, G. Mencagli, D. De Sensi, M. Torquati and M. Danelutto. GASSER: an Auto-Tunable System for General Sliding-Window Streaming Operators on GPUs. IEEE Access, 2019, IEEE. ISSN: 2169-3536, DOI: 10.1109/ACCESS.2019.2910312
