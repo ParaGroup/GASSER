@@ -1,7 +1,6 @@
 # GASSER
 An Autotunable System for Sliding-Window Non-Incremental Streaming Operators on GPU
 
-*(Please note that this is a prelimnary version of the repository)*
 ## Requirements
 
 
