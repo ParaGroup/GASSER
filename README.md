@@ -57,9 +57,19 @@ delaunay_2_interp.h:39:23: fatal error: Eigen/Dense: No such file or directory
 
 this could occur depending on your Linux distribution and installation path. A possible solution could be to edit the indicated file (under ` delaunay_linterp/src/delaunay_2_interp.h`) and change the line 39 with the proper installation path of the Eigen library.
 
-# Contributors
-GASSER has been developed by [Tiziano De Matteis](mailto:dematteis@di.unipi.it) and [Gabriele Mencagli](mailto:mencagli@di.unipi.it).
-
-
+# How to Cite
 If our work is useful for your research, please cite the following paper:
- - T. De Matteis, G. Mencagli, D. De Sensi, M. Torquati and M. Danelutto. GASSER: an Auto-Tunable System for General Sliding-Window Streaming Operators on GPUs. IEEE Access, 2019, IEEE. ISSN: 2169-3536, DOI: 10.1109/ACCESS.2019.2910312
+```
+@ARTICLE{8688411,
+  author={De Matteis, Tiziano and Mencagli, Gabriele and De Sensi, Daniele and Torquati, Massimo and Danelutto, Marco},
+  journal={IEEE Access}, 
+  title={GASSER: An Auto-Tunable System for General Sliding-Window Streaming Operators on GPUs},
+  year={2019},
+  volume={7},
+  number={},
+  pages={48753-48769},
+  doi={10.1109/ACCESS.2019.2910312}}
+```
+
+# Contributors
+GASSER has been developed by [Tiziano De Matteis](mailto:tdematt@inf.ethz.ch) and [Gabriele Mencagli](mailto:gabriele.mencagli@di.unipi.it).
